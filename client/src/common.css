@@ -5,3 +5,15 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+
+body {
+  background-color: #F9F9FB;
+}
+
+h1 {
+  font-size: 1.9rem;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
