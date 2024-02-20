@@ -22,7 +22,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.post('/convert', async (req, res) => {
-  const link = req.body.link;
+  const link = req.body.url;
+
+  console.log(link);
 
   const title = await ytdl.getInfo(link).then(info => {
     return info.videoDetails.title;
@@ -34,7 +36,6 @@ app.post('/convert', async (req, res) => {
   }).pipe(
     createWriteStream(`${title}.mp3`.split('/').join(' '))
       .on('error', err => {
-        console.log(err);
         res.send('Error: ' + err.message);
       })
       .on('finish', () => {
