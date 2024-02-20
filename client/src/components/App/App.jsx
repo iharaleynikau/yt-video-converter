@@ -12,6 +12,8 @@ const App = () => {
   const [progress, setProgress] = useState(0);
   const nodeRef = useRef(null);
 
+  const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3300/convert' : '/convert';
+
   const onButtonClick = async () => {
     if (matchYoutubeUrl(url)) {
       setIsLoading(true);
@@ -19,7 +21,7 @@ const App = () => {
       try {
         await axios
           .post(
-            'http://localhost:3300/convert',
+            baseUrl,
             {
               url
             },
